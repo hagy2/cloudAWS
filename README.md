@@ -59,4 +59,4 @@ This guide provides step-by-step instructions to set up the Event-Driven Order N
   -Save changes.
 ## Architecture Diagram
 
-![Architecture Diagram](readme/architecture Diagram.drawio.png)
+![Architecture Diagram](architecture Diagram.drawio.png)
