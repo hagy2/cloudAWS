@@ -59,4 +59,4 @@ This guide provides step-by-step instructions to set up the Event-Driven Order N
   -Save changes.
 ## Architecture Diagram
 
-![Architecture Diagram](architecture Diagram.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/hagy2/cloudAWS/8574207991d5e19aa67db5790c7791790a25efb9/architecture%20Diagram.drawio.png)
