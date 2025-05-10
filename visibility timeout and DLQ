@@ -1,0 +1,26 @@
+1. Visibility Timeout
+The Visibility Timeout in Amazon SQS temporarily hides a message after it has been picked up by the AWS Lambda function.
+When the Lambda function receives a message from the order SQS queue, the message becomes invisible to other consumers for a set amount of time.
+
+This mechanism is useful because:
+
+It prevents duplicate processing of the same order while the Lambda function is still working on it.
+
+It allows the Lambda function enough time to complete the task (inserting the order into DynamoDB) before the message is visible again.
+
+If the Lambda function fails (crashes or times out), the message becomes visible again after the Visibility Timeout expires, allowing another attempt at processing.
+
+
+
+2. Dead-Letter Queue (DLQ)
+The Dead-Letter Queue (DLQ) is a secondary SQS queue that stores messages that could not be successfully processed after several retry attempts.
+
+This is useful because:
+
+If the Lambda function fails to process a message after 3 retries , the message is moved to the DLQ instead of being lost or stuck.
+
+It allows developers to inspect failed messages later, understand why they failed, and manually reprocess or correct them.
+
+It improves system reliability by ensuring that no data (orders) is silently dropped or lost even if there are errors.
+
+In this project, the DLQ captures unprocessed orders and ensures that no order event is permanently lost
